@@ -1,17 +1,22 @@
 package Ex3;
 
-class Order {
+public class Order {
     private Customer customer;
     private int id;
 
-    public Order(Customer customer,int id) { this.customer = customer; this.id=id;}
-
-       public void printShippingLabel() {
-        String city = customer.getAddress().getCity();    
-        customer.getAddress().setCity(city.trim().toUpperCase());
-        System.out.println("Shipping to: " + city);
-
+    public Order(Customer customer,int id) {
+        this.customer = customer;
+        this.id=id;
     }
 
-    public Customer getCustomer() { return customer; }
+
+    public String printShippingLabel() {
+        String city = customer.getAddressCity();
+        customer.setAddressCity(city.trim().toUpperCase());
+        return "Shipping to: " + city;
+    }
+
+    public String getCustomer() {
+        return customer.getName();
+    }
 }
